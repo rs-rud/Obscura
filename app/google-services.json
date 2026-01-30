@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "340566901016",
+    "project_id": "obscura-backend",
+    "storage_bucket": "obscura-backend.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340566901016:android:a0024f0065de6450719e6d",
+        "android_client_info": {
+          "package_name": "com.example.obscura"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAqnn8SoMruHg1vLtnoAjV9u-KLvQ0ZPg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
