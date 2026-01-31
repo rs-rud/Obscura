@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
                     .set(noteData)
                     .addOnSuccessListener {
                         updateUI()
-                        Toast.makeText(this, "Saved to Cloud!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Synced to Cloud!", Toast.LENGTH_SHORT).show()
                     }
             }
         }
