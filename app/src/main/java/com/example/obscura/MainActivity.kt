@@ -61,18 +61,23 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val noteData = hashMapOf(
-                "content" to noteInput.text.toString(),
-                "timestamp" to System.currentTimeMillis()
-            )
+            val locationClient = LocationServices.getFusedLocationProviderClient(this)
+            locationClient.lastLocation.addOnSuccessListener { location: Location? ->
+                val locString = if (location != null) "Loc: ${location.latitude},${location.longitude}" else "No Loc"
+                val noteData = hashMapOf(
+                    "content" to noteInput.text.toString(),
+                    "location" to locString,
+                    "timestamp" to System.currentTimeMillis()
+                )
 
-            db.collection("users").document(auth.currentUser!!.uid)
-                .collection("notes").document(currentNoteId!!)
-                .set(noteData)
-                .addOnSuccessListener {
-                    updateUI()
-                    Toast.makeText(this, "Saved to Cloud!", Toast.LENGTH_SHORT).show()
-                }
+                db.collection("users").document(auth.currentUser!!.uid)
+                    .collection("notes").document(currentNoteId!!)
+                    .set(noteData)
+                    .addOnSuccessListener {
+                        updateUI()
+                        Toast.makeText(this, "Saved to Cloud!", Toast.LENGTH_SHORT).show()
+                    }
+            }
         }
     }
 
